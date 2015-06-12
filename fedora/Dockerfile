@@ -16,10 +16,10 @@ ENV CROSS_TRIPLE x86_64-linux-gnu
 ENV CROSS_ROOT /usr/${CROSS_TRIPLE}
 ENV PATH ${PATH}:${CROSS_ROOT}/bin:${INSTALL_DIR}
 ENV LD_LIBRARY_PATH ${CROSS_ROOT}/lib:${LD_LIBRARY_PATH}
+WORKDIR /usr/src
 
 RUN mkdir -p vtk-build gdcm-build itk-build statismo-build acvd-build
 
-WORKDIR /usr/src
 RUN git clone https://gitlab.kitware.com/vtk/vtk.git vtk
 WORKDIR /usr/src/vtk
 RUN git checkout v6.2.0
